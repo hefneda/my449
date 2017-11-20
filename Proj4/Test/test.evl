@@ -1,0 +1,14 @@
+module top;
+  wire in;
+  wire ina;
+  wire out;
+  wire outc;
+  
+  evl_one(in);
+  evl_zero(ina);
+
+  not(out,ina);
+  and(outc,out,in);
+  evl_output sim_out(outc,in,ina,out);
+
+endmodule

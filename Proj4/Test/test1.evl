@@ -1,0 +1,21 @@
+module top;
+  wire c0,c1,c2,c3,s0,s1,s2,s3,n0,n1,n2,n3;
+  wire clock;
+
+  evl_one(c0);
+  xor(n0,c0,s0);
+  xor(n1,c1,s1);
+  xor(n2,c2,s2);
+  xor(n3,c3,s3);
+ 
+  and(c1,s0,c0);
+  and(c2,s1,c1);
+  and(c3,s2,c2);
+
+  evl_dff(s0,n0,clock);
+  evl_dff(s1,n1,clock);
+  evl_dff(s2,n2,clock);
+  evl_dff(s3,n3,clock);
+
+  evl_output(s0,s1,s2,s3);
+endmodule
